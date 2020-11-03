@@ -1,0 +1,106 @@
+﻿<Project ToolsVersion="16.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA67EC5D-D8AF-4740-AAF0-1D94881B301F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPHostedAddinWithAngular</RootNamespace>
+    <AssemblyName>SPHostedAddinWithAngular</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetOfficeVersion>16.1</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>12.2</MinimumOfficeToolsVersion>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{da797f89-d63b-4506-8b59-04a34b783e9d}</AppFeaturePartId>
+    <WspPartId>{c07fce5f-2027-4af6-a3f0-7eea593ece63}</WspPartId>
+    <WorkflowPartId>{5d12dadf-490a-49dd-9873-8b9747d0bcca}</WorkflowPartId>
+    <CspkgPartId>{302b927c-3678-4ae8-87cd-a82dbfbc57cf}</CspkgPartId>
+    <SqlPackagePartId>{31117ccf-1fac-4ebd-b0b2-69e4745f53e2}</SqlPackagePartId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App\dist\SPAddInAngular\main.js.map" />
+    <None Include="App\dist\SPAddInAngular\polyfills.js.map" />
+    <None Include="App\dist\SPAddInAngular\runtime.js.map" />
+    <None Include="App\dist\SPAddInAngular\styles.js.map" />
+    <None Include="App\dist\SPAddInAngular\vendor.js.map" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b2e284e6-bb3a-46e3-9fc8-1e47efb79c40}</SharePointProjectItemId>
+    </None>
+    <Content Include="App\dist\SPAddInAngular\favicon.ico" />
+    <Content Include="App\dist\SPAddInAngular\index.html" />
+    <Content Include="App\dist\SPAddInAngular\main.js" />
+    <Content Include="App\dist\SPAddInAngular\polyfills.js" />
+    <Content Include="App\dist\SPAddInAngular\runtime.js" />
+    <Content Include="App\dist\SPAddInAngular\styles.js" />
+    <Content Include="App\dist\SPAddInAngular\vendor.js" />
+    <Content Include="Elements.xml" />
+    <Content Include="Pages\Elements.xml" />
+    <None Include="SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b345a44e-75f2-4164-a4cb-9cd49f8244b4}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pages\SPAddInAngular\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1f27b429-9287-4488-ab94-cff6cdcace12}</SharePointProjectItemId>
+    </None>
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{31117ccf-1fac-4ebd-b0b2-69e4745f53e2}</SharePointProjectItemId>
+    </None>
+    <Content Include="Pages\SPAddInAngular.aspx" />
+    <Content Include="Pages\SPAddInAngular\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+    </Content>
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\App.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{803776e8-2db9-4f60-be05-e5d081cecf3c}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{0b1968b9-ebb7-4104-b545-0219cd754865}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

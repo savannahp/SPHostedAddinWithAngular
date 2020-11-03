@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="803776e8-2db9-4f60-be05-e5d081cecf3c" 
+        solutionId="803776e8-2db9-4f60-be05-e5d081cecf3c" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="SPHostedAddinWithAngular"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="0b1968b9-ebb7-4104-b545-0219cd754865" />
+  </features>
+</package>
